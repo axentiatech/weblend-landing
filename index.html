@@ -250,17 +250,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 56px 0;
-    border-top: 1px solid var(--line);
-    cursor: pointer;
-    transition: padding 0.4s ease;
+    transition: padding 0.3s ease;
     position: relative;
   }
 
   .services-list .service-row-wrap:last-child { border-bottom: 1px solid var(--line); }
-
-  .service-row:hover {
-    padding-left: 24px;
-  }
 
   .service-row .num {
     font-family: var(--display);
@@ -285,19 +279,11 @@
   .service-row .arrow {
     font-family: var(--display);
     font-size: 24px;
-    opacity: 0;
-    transform: translateX(-12px);
+    opacity: 0.45;
     transition: all 0.4s ease;
   }
 
-  .service-row:hover .arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .service-row-wrap {
-    border-top: 1px solid var(--line);
-  }
+  .service-row-wrap { border-top: 1px solid var(--line); }
 
   .video-grid {
     display: grid;
@@ -320,20 +306,7 @@
     display: block;
   }
 
-  .service-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.45s ease;
-  }
-
-  .service-row-wrap.active .service-content {
-    max-height: 2200px;
-  }
-
-  .service-row-wrap.active .service-row .arrow {
-    opacity: 1;
-    transform: rotate(90deg);
-  }
+  .service-content { padding-bottom: 24px; }
 
   /* TESTIMONIALS */
   .testimonials {
@@ -617,7 +590,7 @@
     <div class="section-label">What We Do</div>
     <div class="services-list">
       <div class="service-row-wrap">
-        <div class="service-row" role="button" tabindex="0" aria-expanded="false">
+        <div class="service-row">
           <span class="num">01</span>
           <h3>CGI Reels</h3>
           <span class="arrow">→</span>
@@ -637,7 +610,7 @@
         </div>
       </div>
       <div class="service-row-wrap">
-        <div class="service-row" role="button" tabindex="0" aria-expanded="false">
+        <div class="service-row">
           <span class="num">02</span>
           <h3>3D Product Videos</h3>
           <span class="arrow">→</span>
@@ -651,7 +624,7 @@
         </div>
       </div>
       <div class="service-row-wrap">
-        <div class="service-row" role="button" tabindex="0" aria-expanded="false">
+        <div class="service-row">
           <span class="num">03</span>
           <h3>3D Billboard Animation</h3>
           <span class="arrow">→</span>
@@ -782,27 +755,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  document.querySelectorAll('.service-row-wrap').forEach((wrap) => {
-    const row = wrap.querySelector('.service-row');
-    const toggle = () => {
-      const isActive = wrap.classList.contains('active');
-      document.querySelectorAll('.service-row-wrap').forEach((item) => {
-        item.classList.remove('active');
-        item.querySelector('.service-row').setAttribute('aria-expanded', 'false');
-      });
-      if (!isActive) {
-        wrap.classList.add('active');
-        row.setAttribute('aria-expanded', 'true');
-      }
-    };
-    row.addEventListener('click', toggle);
-    row.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        toggle();
-      }
-    });
-  });
 </script>
 
 </body>
