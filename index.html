@@ -240,6 +240,10 @@
     padding: 140px 0 120px;
   }
 
+  .services .container {
+    max-width: 1800px;
+  }
+
   .services-list {
     display: flex;
     flex-direction: column;
@@ -250,17 +254,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 56px 0;
-    border-top: 1px solid var(--line);
-    cursor: pointer;
-    transition: padding 0.4s ease;
+    transition: padding 0.3s ease;
     position: relative;
   }
 
-  .service-row:last-child { border-bottom: 1px solid var(--line); }
-
-  .service-row:hover {
-    padding-left: 24px;
-  }
+  .services-list .service-row-wrap:last-child { border-bottom: 1px solid var(--line); }
 
   .service-row .num {
     font-family: var(--display);
@@ -285,15 +283,45 @@
   .service-row .arrow {
     font-family: var(--display);
     font-size: 24px;
-    opacity: 0;
-    transform: translateX(-12px);
+    opacity: 0.45;
     transition: all 0.4s ease;
   }
 
-  .service-row:hover .arrow {
-    opacity: 1;
-    transform: translateX(0);
+  .service-row-wrap { border-top: 1px solid var(--line); }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    padding: 0 0 40px;
   }
+
+  .video-card {
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    aspect-ratio: 9 / 16;
+  }
+
+  .video-card iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video-grid.landscape-single {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .video-grid.landscape-single .video-card {
+    aspect-ratio: 16 / 9;
+  }
+
+  .service-content { padding-bottom: 24px; }
 
   /* TESTIMONIALS */
   .testimonials {
@@ -502,10 +530,15 @@
     .service-row { padding: 36px 0; }
     .service-row .num { display: none; }
     .service-row .arrow { display: none; }
+    .video-grid { grid-template-columns: 1fr; }
     .testimonials { padding: 80px 0; }
     .testimonial-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 24px; }
     footer { padding: 80px 0 32px; }
+  }
+
+  @media (max-width: 1200px) and (min-width: 769px) {
+    .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   /* ACCESSIBILITY */
@@ -571,24 +604,57 @@
   <div class="container">
     <div class="section-label">What We Do</div>
     <div class="services-list">
-      <div class="service-row">
-        <span class="num">01</span>
-        <h3>CGI Reels</h3>
-        <span class="arrow">→</span>
+      <div class="service-row-wrap">
+        <div class="service-row">
+          <span class="num">01</span>
+          <h3>CGI Reels</h3>
+          <span class="arrow">→</span>
+        </div>
+        <div class="service-content">
+          <div class="video-grid">
+            <div class="video-card"><iframe title="CGI Reel 1" src="https://player.vimeo.com/video/1048809132?h=10376bbf76&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 2" src="https://player.vimeo.com/video/1050658501?h=f6cb7e2202&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 3" src="https://player.vimeo.com/video/1048818667?h=ed368adcd5&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 4" src="https://player.vimeo.com/video/1048830579?h=d32bd34521&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 5" src="https://player.vimeo.com/video/1048810948?h=def1d46c7e&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 6" src="https://player.vimeo.com/video/1048830045?h=bd297ab395&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 7" src="https://player.vimeo.com/video/1048816710?h=8eaf2f19cf&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 8" src="https://player.vimeo.com/video/1048813945?h=3f376ef05b&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="CGI Reel 9" src="https://player.vimeo.com/video/1048815450?h=5e90c58045&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+          </div>
+        </div>
       </div>
-      <div class="service-row">
-        <span class="num">02</span>
-        <h3>3D Product Videos</h3>
-        <span class="arrow">→</span>
+      <div class="service-row-wrap">
+        <div class="service-row">
+          <span class="num">02</span>
+          <h3>3D Product Videos</h3>
+          <span class="arrow">→</span>
+        </div>
+        <div class="service-content">
+          <div class="video-grid">
+            <div class="video-card"><iframe title="3D Product Video 1" src="https://player.vimeo.com/video/1048925231?h=63b4e64603&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="3D Product Video 2" src="https://player.vimeo.com/video/1050654735?h=49b6fed991&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe title="3D Product Video 3" src="https://player.vimeo.com/video/1048926678?h=f5c801397e&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+          </div>
+        </div>
       </div>
-      <div class="service-row">
-        <span class="num">03</span>
-        <h3>3D Billboard Animation</h3>
-        <span class="arrow">→</span>
+      <div class="service-row-wrap">
+        <div class="service-row">
+          <span class="num">03</span>
+          <h3>3D Billboard Animation</h3>
+          <span class="arrow">→</span>
+        </div>
+        <div class="service-content">
+          <div class="video-grid landscape-single">
+            <div class="video-card"><iframe title="3D Billboard Animation" src="https://player.vimeo.com/video/1050689025?h=407f98d6b8&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+
 
 <section class="testimonials">
   <div class="container">
@@ -677,6 +743,8 @@
       <div class="footer-col">
         <span class="label">Phone</span>
         <div class="value"><a href="tel:+918459336320">+91 845 93 36 320</a></div>
+        <span class="label" style="margin-top: 16px; display: inline-block;">WhatsApp</span>
+        <div class="value"><a href="https://wa.me/918459336320" target="_blank" rel="noopener">wa.me/918459336320</a></div>
       </div>
       <div class="footer-col">
         <span class="label">Follow</span>
@@ -684,7 +752,7 @@
           <a href="https://www.instagram.com/weblendstudios/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
           </a>
-          <a href="https://www.linkedin.com/in/weblend-studio-b84aba2aa" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/shrut-kapadia-8293b8184/" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           </a>
           <a href="https://www.youtube.com/@WeblendStudios" target="_blank" rel="noopener" aria-label="YouTube">
