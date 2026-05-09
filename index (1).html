@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We Blend Studios</title>
+<meta name="description" content="Transform your brand with CGI that breaks the internet.">
+<meta property="og:title" content="We Blend Studios">
+<meta property="og:description" content="Transform your brand with CGI that breaks the internet.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-elev: #131313;
+    --fg: #f5f5f5;
+    --fg-muted: #8a8a8a;
+    --fg-dim: #555;
+    --line: rgba(255, 255, 255, 0.08);
+    --accent: #e8e8e8;
+    --display: 'Unbounded', sans-serif;
+    --body: 'Manrope', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--body);
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img, video { max-width: 100%; display: block; }
+
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* HEADER */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(10,10,10,0.9), rgba(10,10,10,0));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .logo {
+    height: 36px;
+    width: auto;
+  }
+
+  .contact-btn {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border: 1px solid var(--fg);
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: var(--fg);
+    cursor: pointer;
+  }
+
+  .contact-btn:hover {
+    background: var(--fg);
+    color: var(--bg);
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.2) 50%, rgba(10,10,10,0.85) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 120px 24px 80px;
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 7vw, 6.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 .accent {
+    display: block;
+    background: linear-gradient(180deg, #ffffff 0%, #b8b8b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero p.subheadline {
+    margin-top: 32px;
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    color: var(--fg-muted);
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    opacity: 0.7;
+    animation: float 2.4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* SECTION HEADER */
+  .section-label {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* CLIENTS MARQUEE */
+  .clients {
+    padding: 100px 0 80px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 80px;
+    animation: scroll 32s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-track img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    filter: brightness(0) invert(1);
+  }
+
+  .marquee-track img:hover {
+    opacity: 1;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 140px 0 120px;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+    cursor: pointer;
+    transition: padding 0.4s ease;
+    position: relative;
+  }
+
+  .service-row:last-child { border-bottom: 1px solid var(--line); }
+
+  .service-row:hover {
+    padding-left: 24px;
+  }
+
+  .service-row .num {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--fg-dim);
+    letter-spacing: 0.1em;
+  }
+
+  .service-row h3 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 4.2rem);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    flex: 1;
+    text-align: center;
+    transition: transform 0.4s ease;
+  }
+
+  .service-row .arrow {
+    font-family: var(--display);
+    font-size: 24px;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: all 0.4s ease;
+  }
+
+  .service-row:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    padding: 120px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .testimonials h2 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 64px;
+    max-width: 800px;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+
+  .testimonial {
+    padding: 32px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .testimonial:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+
+  .testimonial .stars {
+    color: #f5c518;
+    letter-spacing: 2px;
+    font-size: 14px;
+  }
+
+  .testimonial .quote {
+    color: var(--fg);
+    font-size: 15px;
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .testimonial .meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+
+  .testimonial .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--fg);
+    border: 1px solid var(--line);
+  }
+
+  .testimonial .handle {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  .testimonial .tag {
+    font-size: 12px;
+    color: var(--fg-muted);
+    margin-top: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 100px 0 48px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-cta {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .footer-cta .label {
+    font-family: var(--display);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .footer-cta h2 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(2.6rem, 8vw, 7rem);
+    text-transform: uppercase;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+  }
+
+  .footer-cta a.email-link {
+    font-family: var(--display);
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    color: var(--fg);
+    border-bottom: 1px solid var(--fg);
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+  }
+
+  .footer-cta a.email-link:hover { opacity: 0.6; }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer-col .label {
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .footer-col .value {
+    font-size: 15px;
+    color: var(--fg);
+  }
+
+  .footer-col .value a:hover { opacity: 0.7; }
+
+  .socials {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .socials a:hover {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+  }
+
+  .socials svg { width: 16px; height: 16px; }
+
+  .footer-bottom {
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--fg-muted);
+    font-family: var(--display);
+    letter-spacing: 0.1em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    header { padding: 16px 20px; }
+    .logo { height: 28px; }
+    .contact-btn { padding: 10px 18px; font-size: 11px; }
+    .hero-content { padding: 100px 20px 60px; }
+    .clients { padding: 60px 0 50px; }
+    .marquee-track { gap: 48px; }
+    .marquee-track img { height: 40px; }
+    .services { padding: 80px 0; }
+    .service-row { padding: 36px 0; }
+    .service-row .num { display: none; }
+    .service-row .arrow { display: none; }
+    .testimonials { padding: 80px 0; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    footer { padding: 80px 0 32px; }
+  }
+
+  /* ACCESSIBILITY */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#top" aria-label="We Blend Studios home">
+    <img class="logo" src="https://framerusercontent.com/images/ZIWjUCBbSEnXq13ctomcxgndk.png" alt="We Blend Studios">
+  </a>
+  <a href="#contact" class="contact-btn">Contact us</a>
+</header>
+
+<section class="hero" id="top">
+  <video class="hero-video" autoplay muted loop playsinline poster="">
+    <source src="https://framerusercontent.com/assets/Okwf1zcU7kS4jHcXwiE6OyceVE.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>
+      Transform Your<br>
+      Brand with CGI That<br>
+      <span class="accent">Breaks the Internet</span>
+    </h1>
+    <p class="subheadline">
+      We design for impact, not just aesthetics. Our visuals are engineered to boost engagement, conversions, and brand loyalty.
+    </p>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<section class="clients">
+  <div class="container">
+    <div class="section-label">Our Clients</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <img src="https://framerusercontent.com/images/ODX0o6urmYNzlyyFyTWI640o7o.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/6FzSmQklVSssOTOxmUQGAY20.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/BbVmCy67HdpdVguDOp8n4zueGio.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/OeDuX5v8PhSV4rg1mib4TBNv2U.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/4Cu6lTLwYRmDPJQHlfhGhRpiHk.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/bRWU0q5fFEWhFZ3UAgmam5qE.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/ODX0o6urmYNzlyyFyTWI640o7o.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/6FzSmQklVSssOTOxmUQGAY20.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/BbVmCy67HdpdVguDOp8n4zueGio.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/OeDuX5v8PhSV4rg1mib4TBNv2U.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/4Cu6lTLwYRmDPJQHlfhGhRpiHk.png?scale-down-to=1024" alt="Client logo">
+      <img src="https://framerusercontent.com/images/bRWU0q5fFEWhFZ3UAgmam5qE.png?scale-down-to=1024" alt="Client logo">
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="section-label">What We Do</div>
+    <div class="services-list">
+      <div class="service-row">
+        <span class="num">01</span>
+        <h3>CGI Reels</h3>
+        <span class="arrow">→</span>
+      </div>
+      <div class="service-row">
+        <span class="num">02</span>
+        <h3>3D Product Videos</h3>
+        <span class="arrow">→</span>
+      </div>
+      <div class="service-row">
+        <span class="num">03</span>
+        <h3>3D Billboard Animation</h3>
+        <span class="arrow">→</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="section-label">Testimonials</div>
+    <h2>What our clients are saying</h2>
+    <div class="testimonial-grid">
+
+      <article class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">This is our second time working with Shrut and we look forward to working with him again. He takes great care with his work and makes sure that every detail is perfect before he delivers the final product. Definitely recommend!</p>
+        <div class="meta">
+          <div class="avatar">M</div>
+          <div>
+            <div class="handle">mariatsa123</div>
+            <div class="tag">Repeat client</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Was a pleasure working with Shrut. He made the changes necessary and worked hard. Is also very creative. Thanks heaps!</p>
+        <div class="meta">
+          <div class="avatar">H</div>
+          <div>
+            <div class="handle">holly_w3</div>
+            <div class="tag">Verified client</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Shrut exceeded our expectations with his professional work and keen attention to detail on our social media videos. His polite nature and deep understanding made collaboration seamless. Keep up the great work, Shrut! 👍</p>
+        <div class="meta">
+          <div class="avatar">A</div>
+          <div>
+            <div class="handle">arropa_estore</div>
+            <div class="tag">Verified client</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Excellent. Fluid communication, very attentive to instructions and willing to make adjustments to improve the work and adapt it to the requirements of the project. Recommended.</p>
+        <div class="meta">
+          <div class="avatar">M</div>
+          <div>
+            <div class="handle">mabricenos</div>
+            <div class="tag">Verified client</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p class="quote">This is my third request. This time we asked them to create a CGI video combining jewelry and a realistic city background. The results were excellent and exactly what I wanted. Thank you very much.</p>
+        <div class="meta">
+          <div class="avatar">H</div>
+          <div>
+            <div class="handle">h218341</div>
+            <div class="tag">Repeat client</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+
+    <div class="footer-cta">
+      <span class="label">Let's Work Together</span>
+      <h2>Got a brand<br>worth breaking<br>the internet for?</h2>
+      <a href="mailto:weblendstudios@gmail.com" class="email-link">weblendstudios@gmail.com</a>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <span class="label">Email</span>
+        <div class="value"><a href="mailto:weblendstudios@gmail.com">weblendstudios@gmail.com</a></div>
+      </div>
+      <div class="footer-col">
+        <span class="label">Phone</span>
+        <div class="value"><a href="tel:+918459336320">+91 845 93 36 320</a></div>
+      </div>
+      <div class="footer-col">
+        <span class="label">Follow</span>
+        <div class="socials">
+          <a href="https://www.instagram.com/weblendstudios/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/weblend-studio-b84aba2aa" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+          <a href="https://www.youtube.com/@WeblendStudios" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> We Blend Studios</span>
+      <span>All rights reserved</span>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
