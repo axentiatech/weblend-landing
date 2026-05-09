@@ -311,6 +311,16 @@
     display: block;
   }
 
+  .video-grid.landscape-single {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .video-grid.landscape-single .video-card {
+    aspect-ratio: 16 / 9;
+  }
+
   .service-content { padding-bottom: 24px; }
 
   /* TESTIMONIALS */
@@ -635,7 +645,7 @@
           <span class="arrow">→</span>
         </div>
         <div class="service-content">
-          <div class="video-grid">
+          <div class="video-grid landscape-single">
             <div class="video-card"><iframe title="3D Billboard Animation" src="https://player.vimeo.com/video/1050689025?h=407f98d6b8&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
           </div>
         </div>
@@ -733,6 +743,8 @@
       <div class="footer-col">
         <span class="label">Phone</span>
         <div class="value"><a href="tel:+918459336320">+91 845 93 36 320</a></div>
+        <span class="label" style="margin-top: 16px; display: inline-block;">WhatsApp</span>
+        <div class="value"><a href="https://wa.me/918459336320" target="_blank" rel="noopener">wa.me/918459336320</a></div>
       </div>
       <div class="footer-col">
         <span class="label">Follow</span>
