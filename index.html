@@ -323,6 +323,23 @@
 
   .service-content { padding-bottom: 24px; }
 
+  /* FEATURED VIDEO */
+  .featured-video {
+    padding: 120px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .featured-video h2 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 48px;
+    max-width: 900px;
+  }
+
   /* TESTIMONIALS */
   .testimonials {
     padding: 120px 0;
@@ -531,6 +548,7 @@
     .service-row .num { display: none; }
     .service-row .arrow { display: none; }
     .video-grid { grid-template-columns: 1fr; }
+    .featured-video { padding: 80px 0; }
     .testimonials { padding: 80px 0; }
     .testimonial-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -649,6 +667,19 @@
             <div class="video-card"><iframe title="3D Billboard Animation" src="https://player.vimeo.com/video/1050689025?h=407f98d6b8&autoplay=1&muted=1&loop=1&autopause=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe></div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="featured-video">
+  <div class="container">
+    <div class="section-label">Featured Video</div>
+    <h2>See our latest brand film</h2>
+    <div class="video-grid landscape-single">
+      <div class="video-card">
+        <iframe title="Featured Vimeo Video" src="https://player.vimeo.com/video/1060447413?h=44feb9e09f" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
       </div>
     </div>
   </div>
